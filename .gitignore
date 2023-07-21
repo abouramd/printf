@@ -1,0 +1,4 @@
+.vscode
+.idea
+*.swap
+main.c
