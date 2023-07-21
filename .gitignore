@@ -2,3 +2,5 @@
 .idea
 *.swap
 main.c
+*.o
+a.out
