@@ -16,7 +16,7 @@ int _printf(const char *format, ...)
 	};
 	int i;
 	bool b;
-    int tmp_i;
+//    int tmp_i;
 
     va_start(data.p, format);
     data.format = format;
@@ -27,24 +27,24 @@ int _printf(const char *format, ...)
       i = 0;
 		b = true;
 		if (data.format[data.index] == '%') {
-			tmp_i = _flag(&data);
+//			tmp_i = _flag(&data);
 			while (flag[i].c) {
-				if (flag[i].c == data.format[tmp_i]) {
+				if (flag[i].c == data.format[data.index + 1]) {
                     flag[i].ptr(&data);
-                    data.index = tmp_i;
+                    data.index ++;
                     b = false;
                     break;
                 }
                 i++;
             }
-            if (b && data.format[tmp_i]) {
-                data.len += write(1, &data.format[tmp_i], 1);
-                data.index = tmp_i;
-                b = false;
-            }
-            else if (!data.format[tmp_i]) {
-				break;
-			}
+//            if (b && data.format[tmp_i]) {
+//                data.len += write(1, &data.format[tmp_i], 1);
+//                data.index = tmp_i;
+//                b = false;
+//            }
+//            else if (!data.format[tmp_i]) {
+//				break;
+//			}
         }
 		if (b)
 			data.len += write(1, &data.format[data.index], 1);
