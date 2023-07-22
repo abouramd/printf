@@ -42,5 +42,7 @@ int _flag(t_data *data);
 void put_c(t_data *data);
 void put_s(t_data *data);
 void put_pors(t_data *data);
+void put_base(t_data *data, long n, char *strbase, int base);
+void put_d(t_data *data);
 
 #endif
