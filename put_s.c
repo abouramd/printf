@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * put_s - print a string
+ * put_c - print a char
  * @data: struct of my data
  * Return: void
  */

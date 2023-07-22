@@ -12,8 +12,8 @@ int _printf(const char *format, ...)
 	t_flag flag[] = {
 		{'c', &put_c},
 		{'s', &put_s},
-		//{'d', NULL},
-		//{'i', NULL},
+		{'d', NULL},
+		{'i', NULL},
 		{0, NULL}
 	};
 	int i;
@@ -31,7 +31,11 @@ int _printf(const char *format, ...)
             int tmp_i = _flag(&data);
             while (flag[i].c) {
                 if (flag[i].c == data.format[tmp_i]) {
-                    flag[i].ptr(&data);
+                    if (flag[i].ptr)
+                        flag[i].ptr(&data);
+                    else {
+                        write(1, "(nil)", 5);
+                    }
                     data.index = tmp_i;
                     b = false;
                     break;
@@ -43,10 +47,8 @@ int _printf(const char *format, ...)
                 data.index = tmp_i;
                 b = false;
             }
-            else if (b) {
-                data.index = tmp_i;
-                continue;
-            }
+            else if (b)
+                data.index = tmp_i - 1;
         }
 		if (b)
 			data.len += write(1, &data.format[data.index], 1);
