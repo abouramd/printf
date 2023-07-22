@@ -8,7 +8,7 @@
 
 int _printf(const char *format, ...)
 {
-	t_data data;
+  t_data data;
 	t_flag flag[] = {
 			{'c', &put_c},
 			{'s', &put_s},
@@ -18,13 +18,13 @@ int _printf(const char *format, ...)
 	bool b;
     int tmp_i;
 
-	va_start(data.p, format);
-	data.format = format;
-	data.index = 0;
-	data.len = 0;
-	while (data.format[data.index])
-	{
-		i = 0;
+    va_start(data.p, format);
+    data.format = format;
+    data.index = 0;
+    data.len = 0;
+    while (data.format[data.index])
+    {
+      i = 0;
 		b = true;
 		if (data.format[data.index] == '%') {
 			tmp_i = _flag(&data);
@@ -37,13 +37,13 @@ int _printf(const char *format, ...)
                 }
                 i++;
             }
-            if (b && data.format[tmp_i]) {
-                data.len += write(1, &data.format[tmp_i], 1);
-                data.index = tmp_i;
-                b = false;
-            }
-            else if (!data.format[tmp_i])
-                continue;
+//            if (b && data.format[tmp_i]) {
+//                data.len += write(1, &data.format[tmp_i], 1);
+//                data.index = tmp_i;
+//                b = false;
+//            }
+//            else if (!data.format[tmp_i])
+//                continue;
         }
 		if (b)
 			data.len += write(1, &data.format[data.index], 1);
