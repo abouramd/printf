@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
             tmp_i = _flag(&data);
             while (flag[i].c) {
                 if (flag[i].c == data.format[tmp_i]) {
-                        flag[i].ptr(&data);
+                    flag[i].ptr(&data);
                     data.index = tmp_i;
                     b = false;
                     break;
