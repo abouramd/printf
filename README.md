@@ -29,7 +29,7 @@ To help us in this task, we can refer to the following resources:
 ## Compilation
 We can compile our code using the following command:
 ```bash
-$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c
+$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
 ```
 Note: We should be careful not to push any C file containing a `main` function to the root directory of the project. We can have a separate test folder for our test files with `main` functions.
 
