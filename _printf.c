@@ -10,9 +10,9 @@ int _printf(const char *format, ...)
 {
 	t_data data;
 	t_flag flag[] = {
-		{'c', &put_c},
-		{'s', &put_s},
-		{0, NULL}
+			{'c', &put_c},
+			{'s', &put_s},
+			{0, NULL}
 	};
 	int i;
 	bool b;
@@ -26,10 +26,10 @@ int _printf(const char *format, ...)
 	{
 		i = 0;
 		b = true;
-        if (data.format[data.index] == '%') {
-            tmp_i = _flag(&data);
-            while (flag[i].c) {
-                if (flag[i].c == data.format[tmp_i]) {
+		if (data.format[data.index] == '%') {
+			tmp_i = _flag(&data);
+			while (flag[i].c) {
+				if (flag[i].c == data.format[tmp_i]) {
                     flag[i].ptr(&data);
                     data.index = tmp_i;
                     b = false;
