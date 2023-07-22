@@ -3,7 +3,6 @@
 
 #include <stdarg.h>
 #include <unistd.h>
-//#include <stdbool.h>
 
 /**
  * strct data - struct
