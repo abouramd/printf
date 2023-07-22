@@ -16,6 +16,7 @@ int _printf(const char *format, ...)
 			{'i', &put_d},
 			{'d', &put_d},
 			{'r', &put_r},
+			{'R', &put_r13},
 			{0, NULL}
 	};
 	int i;
