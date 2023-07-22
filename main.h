@@ -41,6 +41,6 @@ int _printf(const char *format, ...);
 int _flag(t_data *data);
 void put_c(t_data *data);
 void put_s(t_data *data);
-
+void put_pors(t_data *data);
 
 #endif

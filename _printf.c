@@ -11,6 +11,8 @@ int _printf(const char *format, ...)
   t_data data;
 	t_flag flag[] = {
 			{'c', &put_c},
+			{'s', &put_s},
+			{'%', &put_pors},
 			{0, NULL}
 	};
 	int i;
