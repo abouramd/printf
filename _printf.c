@@ -10,10 +10,10 @@ int _printf(const char *format, ...)
 {
 	t_data data;
 	t_flag flag[] = {
-		{'c', NULL},
-		{'i', NULL},
+		{'c', &put_c},
+		{'s', &put_s},
 		{'d', NULL},
-		{'s', NULL},
+		{'i', NULL},
 		{0, NULL}
 	};
 	int i;
@@ -27,23 +27,29 @@ int _printf(const char *format, ...)
 	{
 		i = 0;
 		b = true;
-		if (data.format[data.index] == '%')
-		{
-			while (flag[i].c)
-			{
-				if (flag[i].c == data.format[data.index + 1])
-				{
-					if (flag[i].ptr)
-						flag[i].ptr(data);
-					else
-						write(1, "(nil)", 5);
-					data.index++;
-					b = false;
-					break;
-				}
-				i++;
-			}
-		}
+        if (data.format[data.index] == '%') {
+            int tmp_i = _flag(&data);
+            while (flag[i].c) {
+                if (flag[i].c == data.format[tmp_i]) {
+                    if (flag[i].ptr)
+                        flag[i].ptr(&data);
+                    else {
+                        write(1, "(nil)", 5);
+                    }
+                    data.index = tmp_i;
+                    b = false;
+                    break;
+                }
+                i++;
+            }
+            if (b && data.format[tmp_i]) {
+                data.len += write(1, &data.format[tmp_i], 1);
+                data.index = tmp_i;
+                b = false;
+            }
+            else if (b)
+                data.index = tmp_i - 1;
+        }
 		if (b)
 			data.len += write(1, &data.format[data.index], 1);
 		data.index++;

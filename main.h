@@ -19,6 +19,9 @@ typedef struct data
     const char *format;
     int index;
     int len;
+
+    bool plus;
+    bool hash;
 } t_data;
 
 /**
@@ -30,10 +33,14 @@ typedef struct data
 typedef struct flag
 {
     char c;
-    void (*ptr)(t_data);
+    void (*ptr)(t_data*);
 } t_flag;
 
 
 int _printf(const char *format, ...);
+int _flag(t_data *data);
+void put_c(t_data *data);
+void put_s(t_data *data);
+
 
 #endif
