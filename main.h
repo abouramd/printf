@@ -3,6 +3,7 @@
 
 #include <stdarg.h>
 #include <unistd.h>
+#include <stdbool.h>
 
 /**
  * strct data - struct
@@ -19,8 +20,8 @@ typedef struct data
     int index;
     int len;
 
-    int plus;
-    int hash;
+    bool plus;
+    bool hash;
 } t_data;
 
 /**
