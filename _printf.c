@@ -12,12 +12,11 @@ int _printf(const char *format, ...)
 	t_flag flag[] = {
 		{'c', &put_c},
 		{'s', &put_s},
-		{'d', NULL},
-		{'i', NULL},
 		{0, NULL}
 	};
 	int i;
 	bool b;
+    int tmp_i;
 
 	va_start(data.p, format);
 	data.format = format;
@@ -28,14 +27,10 @@ int _printf(const char *format, ...)
 		i = 0;
 		b = true;
         if (data.format[data.index] == '%') {
-            int tmp_i = _flag(&data);
+            tmp_i = _flag(&data);
             while (flag[i].c) {
                 if (flag[i].c == data.format[tmp_i]) {
-                    if (flag[i].ptr)
                         flag[i].ptr(&data);
-                    else {
-                        write(1, "(nil)", 5);
-                    }
                     data.index = tmp_i;
                     b = false;
                     break;
