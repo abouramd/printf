@@ -37,7 +37,7 @@ int _printf(const char *format, ...)
                 }
                 i++;
             }
-			if (b && !data.format[tmp_i])
+			if (!data.format[tmp_i])
 			{
 				data.index = tmp_i;
 				continue;
