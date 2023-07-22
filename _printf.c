@@ -31,11 +31,7 @@ int _printf(const char *format, ...)
             int tmp_i = _flag(&data);
             while (flag[i].c) {
                 if (flag[i].c == data.format[tmp_i]) {
-                    if (flag[i].ptr)
-                        flag[i].ptr(&data);
-                    else {
-                        write(1, "(nil)", 5);
-                    }
+                    flag[i].ptr(&data);
                     data.index = tmp_i;
                     b = false;
                     break;
