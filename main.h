@@ -6,7 +6,7 @@
 #include <stdbool.h>
 
 /**
- * strct data - struct
+ * struct data - struct
  * @p: va_list
  * @index: int
  * @format: format ptr
