@@ -37,7 +37,7 @@ int _printf(const char *format, ...)
                 }
                 i++;
             }
-            else if (!data.format[tmp_i]) {
+			if (!data.format[tmp_i]) {
 				break;
 			}
         }
