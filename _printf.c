@@ -47,8 +47,8 @@ int _printf(const char *format, ...)
                 data.index = tmp_i;
                 b = false;
             }
-            else if (b)
-                data.index = tmp_i - 1;
+            else if (!data.format[tmp_i])
+                continue;
         }
 		if (b)
 			data.len += write(1, &data.format[data.index], 1);
