@@ -31,13 +31,23 @@ int _printf(const char *format, ...)
 			tmp_i = _flag(&data);
 			while (flag[i].c) {
 				if (flag[i].c == data.format[tmp_i]) {
-					flag[i].ptr(&data);
-					data.index = tmp_i;
-					b = false;
-					break;
-				}
-				i++;
+                    flag[i].ptr(&data);
+                    data.index = tmp_i;
+                    b = false;
+                    break;
+                }
+                i++;
+            }
+			if (!data.format[tmp_i]) {
+				break;
 			}
+			if (b)
+			{
+				data.index = tmp_i;
+				data.len += write(1, &data.format[data.index], 1);
+				b = false;
+			}
+
         }
 		if (b)
 			data.len += write(1, &data.format[data.index], 1);
