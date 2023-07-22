@@ -37,16 +37,18 @@ int _printf(const char *format, ...)
                 }
                 i++;
             }
-            if (b && data.format[data.index]) {
-                data.len += write(1, &data.format[data.index], 1);
-//                data.index = tmp_i;
-                b = false;
-            }
-            else if (!data.format[data.index]) {
-//				data.index = tmp_i;
-				continue;
-			}
+//            if (b && data.format[data.index]) {
+//                data.len += write(1, &data.format[data.index], 1);
+////                data.index = tmp_i;
+//                b = false;
+//            }
+//            else if (!data.format[data.index]) {
+////				data.index = tmp_i;
+//				continue;
+//			}
         }
+		if (!data.format[data.index])
+			break;
 		if (b)
 			data.len += write(1, &data.format[data.index], 1);
 		data.index++;
