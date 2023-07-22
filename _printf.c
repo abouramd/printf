@@ -11,7 +11,7 @@ int _printf(const char *format, ...)
 	t_data data;
 	t_flag flag[] = {
 		{'c', &put_c},
-		//{'s', &put_s},
+		{'s', &put_s},
 		//{'d', NULL},
 		//{'i', NULL},
 		{0, NULL}
@@ -28,7 +28,7 @@ int _printf(const char *format, ...)
 		i = 0;
 		b = true;
         if (data.format[data.index] == '%') {
-            int tmp_i = _flag(&data);
+            int tmp_i = data.index + 1;//_flag(&data);
             while (flag[i].c) {
                 if (flag[i].c == data.format[tmp_i]) {
                     if (flag[i].ptr)
