@@ -26,7 +26,7 @@ int _printf(const char *format, ...)
     {
       i = 0;
 		b = true;
-		if (data.format[data.index] == '%') {
+		if (0 && data.format[data.index] == '%') {
 			tmp_i = data.index + 1 ;//_flag(&data)
 			while (flag[i].c) {
 				if (flag[i].c == data.format[tmp_i]) {
@@ -37,7 +37,7 @@ int _printf(const char *format, ...)
                 }
                 i++;
             }
-			if (!data.format[tmp_i])
+			if (0 && !data.format[tmp_i])
 			{
 				data.index = tmp_i;
 				continue;
