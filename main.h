@@ -6,7 +6,7 @@
 #include <stdbool.h>
 
 /**
- * strct data - struct
+ * struct data - struct
  * @p: va_list
  * @index: int
  * @format: format ptr
@@ -25,7 +25,7 @@ typedef struct data
 } t_data;
 
 /**
- * strct data - struct
+ * struct data - struct
  * @c: the flag
  * @ptr: pointer to function
  */
