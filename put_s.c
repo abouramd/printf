@@ -11,7 +11,7 @@ void put_s(t_data *data)
     char *s = va_arg(data->p, char *);
 
     if (!s)
-        data->len += write(1, "(null)", 6);
+        data->len += write(1, "(null)", 7);
     else
     {
         while (*s)
