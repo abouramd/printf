@@ -3,7 +3,7 @@
 *.swap
 main.c
 *.o
-a.out
+a.out*
 cmake-build-debug
 CMakeLists.txt
 
