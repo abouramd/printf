@@ -40,6 +40,8 @@ int _printf(const char *format, ...)
                 }
                 i++;
             }
+			if (!data.format[tmp_i])
+				break;
         }
 		if (b)
 			data.len += write(1, &data.format[data.index], 1);
