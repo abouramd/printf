@@ -42,9 +42,12 @@ int _printf(const char *format, ...)
 //                data.index = tmp_i;
 //                b = false;
 //            }
-            if (!data.format[tmp_i])
-                continue;
-        }
+			if (!data.format[tmp_i])
+			{
+				data.index = tmp_i;
+				continue;
+			}
+		}
 		if (b)
 			data.len += write(1, &data.format[data.index], 1);
 		data.index++;
