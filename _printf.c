@@ -8,13 +8,16 @@
 
 int _printf(const char *format, ...)
 {
-	t_data data;
+  t_data data;
 	t_flag flag[] = {
 		{'c', &put_c},
-		{'s', &put_s},
-		//{'d', NULL},
-		//{'i', NULL},
-		{'b', &put_b},
+			{'s', &put_s},
+			{'%', &put_pors},
+			{'i', &put_d},
+			{'d', &put_d},
+			{'r', &put_r},
+			{'R', &put_r13},
+			{'b', &put_b},
 		{'x', &put_x},
 		{'X', &put_X},
 		{'u', &put_u},
@@ -24,19 +27,20 @@ int _printf(const char *format, ...)
 	};
 	int i;
 	bool b;
+    int tmp_i;
 
-	va_start(data.p, format);
-	data.format = format;
-	data.index = 0;
-	data.len = 0;
-	while (data.format[data.index])
-	{
-		i = 0;
+    va_start(data.p, format);
+    data.format = format;
+    data.index = 0;
+    data.len = 0;
+    while (data.format[data.index])
+    {
+      i = 0;
 		b = true;
-        if (data.format[data.index] == '%') {
-            int tmp_i = _flag(&data);
-            while (flag[i].c) {
-                if (flag[i].c == data.format[tmp_i]) {
+		if (data.format[data.index] == '%') {
+			tmp_i = _flag(&data);
+			while (flag[i].c) {
+				if (flag[i].c == data.format[tmp_i]) {
                     flag[i].ptr(&data);
                     data.index = tmp_i;
                     b = false;
@@ -44,15 +48,8 @@ int _printf(const char *format, ...)
                 }
                 i++;
             }
-            if (b && data.format[tmp_i]) {
-                data.len += write(1, &data.format[tmp_i], 1);
-                data.index = tmp_i;
-                b = false;
-            }
-            else if (b) {
-                data.index = tmp_i;
-                continue;
-            }
+			if (!data.format[tmp_i])
+				break;
         }
 		if (b)
 			data.len += write(1, &data.format[data.index], 1);

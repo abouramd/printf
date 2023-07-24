@@ -9,15 +9,15 @@
 int _flag(t_data *data)
 {
     int i = data->index + 1;
-    data->plus = false;
-    data->hash = false;
+    data->plus = 0;
+    data->hash = 0;
     while (data->format[i])
     {
         if (data->format[i] != ' ') {
             if (data->format[i] == '+')
-                data->plus = true;
+                data->plus = 1;
             else if (data->format[i] == '#')
-                data->hash = true;
+                data->hash = 1;
             else
                 break;
         }

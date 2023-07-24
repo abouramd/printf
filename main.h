@@ -1,7 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include <stdio.h>
 #include <stdarg.h>
 #include <unistd.h>
 #include <stdbool.h>
@@ -27,7 +26,7 @@ typedef struct data
 } t_data;
 
 /**
- * strct data - struct
+ * struct data - struct
  * @c: the flag
  * @ptr: pointer to function
  */
@@ -43,7 +42,11 @@ int _printf(const char *format, ...);
 int _flag(t_data *data);
 void put_c(t_data *data);
 void put_s(t_data *data);
-
+void put_pors(t_data *data);
+void put_base(t_data *data, long n, char *strbase, int base);
+void put_d(t_data *data);
+void put_r(t_data *data);
+void put_r13(t_data *data);
 
 void put_b(t_data *data);
 void put_x(t_data *data);

@@ -1,0 +1,9 @@
+.vscode
+.idea
+*.swap
+main.c
+*.o
+a.out*
+cmake-build-debug
+CMakeLists.txt
+
