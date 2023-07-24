@@ -14,6 +14,12 @@ int _printf(const char *format, ...)
 		{'s', &put_s},
 		//{'d', NULL},
 		//{'i', NULL},
+		{'b', &put_b},
+		{'x', &put_x},
+		{'X', &put_X},
+		{'u', &put_u},
+		{'p', &put_p},
+		{'o', &put_o},
 		{0, NULL}
 	};
 	int i;

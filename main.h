@@ -5,6 +5,7 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <stdbool.h>
+#include <stdio.h>
 
 /**
  * struct data - struct
@@ -44,4 +45,10 @@ void put_c(t_data *data);
 void put_s(t_data *data);
 
 
+void put_b(t_data *data);
+void put_x(t_data *data);
+void put_X(t_data *data);
+void put_u(t_data *data);
+void put_p(t_data *data);
+void put_o(t_data *data);
 #endif
