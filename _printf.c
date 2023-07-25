@@ -31,6 +31,12 @@ void _printf_util(t_data *data, t_flag *flag)
 				}
 				i++;
 			}
+			if (b && data->format[tmp_i])
+			{
+				data->len += write(1, "% ", 2);
+				b = false;
+				tmp_i++;
+			}
 			if (!data->format[tmp_i])
 			{
 				data->len = -1;
