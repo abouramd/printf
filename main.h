@@ -12,29 +12,31 @@
  * @index: int
  * @format: format ptr
  * @len: int
+ * @plus: flag to check +
+ * @hash: flag to check #
  */
 
 typedef struct data
 {
-    va_list p;
-    const char *format;
-    int index;
-    int len;
+	va_list p;
+	const char *format;
+	int index;
+	int len;
 
-    bool plus;
-    bool hash;
+	bool plus;
+	bool hash;
 } t_data;
 
 /**
- * struct data - struct
+ * struct flag - struct
  * @c: the flag
  * @ptr: pointer to function
  */
- 
+
 typedef struct flag
 {
-    char c;
-    void (*ptr)(t_data*);
+	char c;
+	void (*ptr)(t_data *);
 } t_flag;
 
 
