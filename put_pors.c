@@ -8,5 +8,5 @@
 
 void put_pors(t_data *data)
 {
-    data->len += write(1, "%", 1);
+	data->len += write(1, "%", 1);
 }

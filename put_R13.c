@@ -9,13 +9,13 @@
 void put_r13(t_data *data)
 {
 	char rot;
-    char *s = va_arg(data->p, char *);
+	char *s = va_arg(data->p, char *);
 
-    if (!s)
-        data->len += write(1, "(null)", 6);
-    else
-    {
-        while (*s)
+	if (!s)
+		data->len += write(1, "(null)", 6);
+	else
+	{
+		while (*s)
 		{
 			rot = *(s++);
 			if (rot >= 97 && rot <= 122)
@@ -30,5 +30,5 @@ void put_r13(t_data *data)
 			}
 			data->len += write(1, &rot, 1);
 		}
-    }
+	}
 }
