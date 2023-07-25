@@ -27,30 +27,33 @@ int _printf(const char *format, ...)
 	};
 	int i;
 	bool b;
-    int tmp_i;
+	int tmp_i;
 
-    va_start(data.p, format);
-    data.format = format;
-    data.index = 0;
-    data.len = 0;
-    while (format && data.format[data.index])
-    {
-      i = 0;
+	va_start(data.p, format);
+	data.format = format;
+	data.index = 0;
+	data.len = 0;
+	if (!format)
+		return (-1);
+	
+	while (data.format[data.index])
+	{
+		i = 0;
 		b = true;
 		if (data.format[data.index] == '%') {
 			tmp_i = _flag(&data);
 			while (flag[i].c) {
 				if (flag[i].c == data.format[tmp_i]) {
-                    flag[i].ptr(&data);
-                    data.index = tmp_i;
-                    b = false;
-                    break;
-                }
-                i++;
-            }
+					flag[i].ptr(&data);
+					data.index = tmp_i;
+					b = false;
+					break;
+				}
+				i++;
+			}
 			if (!data.format[tmp_i])
 				break;
-        }
+		}
 		if (b)
 			data.len += write(1, &data.format[data.index], 1);
 		data.index++;
