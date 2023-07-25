@@ -33,6 +33,8 @@ int _printf(const char *format, ...)
 	data.format = format;
 	data.index = 0;
 	data.len = 0;
+	if (!format)
+		return (-1);
 	while (format && data.format[data.index])
 	{
 	  i = 0;
