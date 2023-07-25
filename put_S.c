@@ -21,6 +21,8 @@ void put_S(t_data *data)
 			else
 			{
 				data->len += write(1, "\\x", 2);
+				if (*s < 16)
+					data->len += write(1, "0", 1);
 				put_base(data, *s, "0123456789ABCDEF", 16);
 			}
 			s++;

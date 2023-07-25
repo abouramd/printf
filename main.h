@@ -49,6 +49,7 @@ void put_base(t_data *data, long n, char *strbase, int base);
 void put_d(t_data *data);
 void put_r(t_data *data);
 void put_r13(t_data *data);
+void put_S(t_data *data);
 
 void put_b(t_data *data);
 void put_x(t_data *data);
@@ -58,6 +59,7 @@ void put_p(t_data *data);
 void put_o(t_data *data);
 void put_ubase(t_data *data, unsigned long n, char *strbase,
 unsigned long base);
+
 
 
 #endif

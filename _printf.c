@@ -67,6 +67,7 @@ int _printf(const char *format, ...)
 		{'u', &put_u},
 		{'p', &put_p},
 		{'o', &put_o},
+		{'S', &put_S},
 		{0, NULL}
 	};
 
