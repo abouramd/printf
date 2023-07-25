@@ -19,12 +19,12 @@ void _printf_util(t_data *data, t_flag *flag)
 		b = true;
 		if (data->format[data->index] == '%')
 		{
-			tmp_i = _flag(&data);
+			tmp_i = _flag(data);
 			while (flag[i].c)
 			{
 				if (flag[i].c == data->format[tmp_i])
 				{
-					flag[i].ptr(&data);
+					flag[i].ptr(data);
 					data->index = tmp_i;
 					b = false;
 					break;
@@ -72,6 +72,8 @@ int _printf(const char *format, ...)
 	data.index = 0;
 	data.len = 0;
 	if (!format)
+		return (-1);
+	if (format[0] == '%' && format[1] == 0)
 		return (-1);
 	va_start(data.p, format);
 	_printf_util(&data, flag);
