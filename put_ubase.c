@@ -9,7 +9,7 @@
  * Return: void
  */
 
-void put_ubase(t_data *data, unsigned long n, char *strbase, int base)
+void put_ubase(t_data *data, unsigned long n, char *strbase, unsigned long base)
 {
 	if (n >= base)
 		put_ubase(data, n / base, strbase, base);
