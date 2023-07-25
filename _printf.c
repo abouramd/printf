@@ -36,11 +36,6 @@ void _printf_util(t_data *data, t_flag *flag)
 				data->len = -1;
 				break;
 			}
-			if (b)
-			{
-				b = false;
-				data->len += write(1, "% ", 2);
-			}
 		}
 		if (b)
 			data->len += write(1, &data->format[data->index], 1);
