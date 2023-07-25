@@ -25,12 +25,12 @@ void _printf_util(t_data *data, t_flag *flag)
 				if (flag[i].c == data->format[tmp_i])
 				{
 					flag[i].ptr(data);
+					data->index = tmp_i;
 					b = false;
 					break;
 				}
 				i++;
 			}
-			data->index = tmp_i;
 			if (!data->format[tmp_i])
 			{
 				data->len = -1;
