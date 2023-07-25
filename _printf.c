@@ -25,7 +25,6 @@ void _printf_util(t_data *data, t_flag *flag)
 				if (flag[i].c == data->format[tmp_i])
 				{
 					flag[i].ptr(data);
-					data->index = tmp_i;
 					b = false;
 					break;
 				}
@@ -33,7 +32,15 @@ void _printf_util(t_data *data, t_flag *flag)
 			}
 			data->index = tmp_i;
 			if (!data->format[tmp_i])
+			{
+				data->len = -1;
 				break;
+			}
+			if (b)
+			{
+				b = false;
+				data->len += write(1, "% ", 2);
+			}
 		}
 		if (b)
 			data->len += write(1, &data->format[data->index], 1);
